@@ -1,42 +1,54 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app {
+  display: grid;
+  height: 100vh; /* full page vh=viewport height vw=viewport width*/
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 8fr 0.5fr;
+  grid-template-areas:
+    "header header header"
+    "main main aside"
+    "footer footer footer";
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app.collapsed {
+  grid-template-columns: 0fr 1fr 0fr; /* Aside weg */
+  grid-template-areas:
+    "header header header"
+    " main main ."
+    "footer footer footer";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app.collapsed aside {
+  display: none;
 }
 
-.card {
-  padding: 2em;
+header {
+  grid-area: header;
+  background: #fde703;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; /* optional: Abstand innen */
 }
 
-.read-the-docs {
-  color: #888;
+footer {
+  grid-area: footer;
+  background: #fde703;
+}
+
+aside {
+  grid-area: aside;
+  background: lightgray;
+}
+
+main {
+  grid-area: main;
+  background: white;
 }

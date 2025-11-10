@@ -1,38 +1,56 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import dayjs from "dayjs";
+import { Header } from "./Header";
+import { MainArea } from "./MainArea";
+import { Sidebar } from "./Sidebar";
+import { Footer } from "./Footer";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  //Test Tobias
-  //Test Tobias 2
+export function App() {
+  const [collapsed, setCollapsed] = useState(false);
+  const [datum, setDatum] = useState(dayjs().format("DD.MM.YYYY"));
+  const messstationListe = [
+    "Bahnhofstrasse",
+    "Bundesplatz",
+    "Bernerstrasse",
+    "Langstrasse",
+    "Test",
+  ];
+  const [messstation, setMessstation] = useState(messstationListe[0]);
+  const [personengruppe, setPersonengruppe] = useState("alle");
+  const [vergleichsart, setVergleichsart] = useState("tot");
+  //const [totltr, setTotltr] = useState(""); - Weitermachen
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className={`app ${collapsed ? "collapsed" : ""}`}>
+      <Header
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+        datum={datum}
+        messstation={messstation}
+        // totltr={totltr} -weitermachen
+        // ltr={ltr} -weitermachen
+        // totrtl={totrtl} -weitermachen
+        // rtl={rtl} -weitermachen
+      />
+      <MainArea
+        datum={datum}
+        messstation={messstation}
+        personengruppe={personengruppe}
+        vergleichsart={vergleichsart}
+      />
+      <Sidebar
+        datum={datum}
+        setDatum={setDatum}
+        messstation={messstation}
+        setMessstation={setMessstation}
+        messstationListe={messstationListe}
+        personengruppe={personengruppe}
+        setPersonengruppe={setPersonengruppe}
+        vergleichsart={vergleichsart}
+        setVergleichsart={setVergleichsart}
+      />
+      <Footer />
+    </div>
   );
 }
-
-export default App;
