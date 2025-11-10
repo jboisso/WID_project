@@ -6,6 +6,8 @@ import { MainArea } from "./MainArea";
 import { Sidebar } from "./Sidebar";
 import { Footer } from "./Footer";
 
+//dies ist ein Test
+
 export function App() {
   const [collapsed, setCollapsed] = useState(false);
   const [datum, setDatum] = useState(dayjs().format("DD.MM.YYYY"));
