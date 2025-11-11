@@ -7,6 +7,7 @@ import { Sidebar } from "./Sidebar";
 import { Footer } from "./Footer";
 
 //dies ist ein Test
+//ein weiterer Test
 
 export function App() {
   const [collapsed, setCollapsed] = useState(false);
