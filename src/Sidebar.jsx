@@ -18,6 +18,14 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+import {
+  MapContainer,
+  TileLayer,
+  GeoJSON,
+  Popup,
+  CircleMarker,
+} from "react-leaflet";
+
 export const Sidebar = ({
   datum,
   setDatum,
@@ -128,6 +136,28 @@ export const Sidebar = ({
               </Select>
             </FormControl>
           </Box>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+        >
+          <Typography component="span">Karte</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MapContainer
+            center={[47.374972, 8.540444]}
+            zoom={13}
+            style={{ height: "20vh", width: "100%" }}
+          >
+            <TileLayer
+              url="https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.png"
+              attribution="&copy; OpenStreetMap contributors"
+            />
+          </MapContainer>
         </AccordionDetails>
       </Accordion>
     </aside>
