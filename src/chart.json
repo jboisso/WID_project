@@ -1,0 +1,335 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300,
+      "stroke": null
+    }
+  },
+  "concat": [
+    {
+      "mark": {
+        "type": "image",
+        "height": 25,
+        "width": 25
+      },
+      "encoding": {
+        "url": {
+          "field": "weather_icon",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": null,
+          "field": "hour",
+          "type": "ordinal"
+        }
+      },
+      "height": 720,
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "weather_icon",
+              "as": "weather_icon"
+            }
+          ],
+          "groupby": [
+            "hour",
+            "location_id"
+          ]
+        }
+      ],
+      "width": 30
+    },
+    {
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "height": 30
+          },
+          "encoding": {
+            "color": {
+              "field": "temperature",
+              "scale": {
+                "scheme": "blueorange",
+                "domain": [
+                  -10,
+                  35
+                ],
+                "type": "linear"
+              },
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "temperature",
+                "format": ".1f",
+                "title": "Temperatur [\u00b0C]:",
+                "type": "quantitative"
+              }
+            ],
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "temporal"
+            }
+          },
+          "name": "view_bdbea3530ee6642c_0"
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "darkred",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "pedestrian_diff",
+                "title": "Passanten mehr in Richtung Hauptbahnhof als B\u00fcrkliplatz",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "axis": {
+                "title": "Passanten in Richtung Hauptbahnhof",
+                "titleFont": "Bahnschrift",
+                "titleFontSize": 14,
+                "titlePadding": 10
+              },
+              "field": "ltr_pedestrians_count",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "dimgray",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "ltr_pedestrians_count",
+                "title": "Passanten in Richtung Hauptbahnhof",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "aggregate": "sum",
+              "field": "pedestrian_grey",
+              "sort": "descending",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "rect",
+            "height": 0,
+            "opacity": 0
+          },
+          "encoding": {
+            "x": {
+              "field": "max_val",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "temporal"
+            }
+          }
+        }
+      ],
+      "height": 720,
+      "width": 400
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Bahnschrift",
+        "fontSize": 15
+      },
+      "encoding": {
+        "text": {
+          "field": "hour",
+          "type": "ordinal"
+        },
+        "y": {
+          "axis": null,
+          "field": "hour",
+          "type": "ordinal"
+        }
+      },
+      "height": 720,
+      "transform": [
+        {
+          "aggregate": [],
+          "groupby": [
+            "hour",
+            "location_id"
+          ]
+        }
+      ],
+      "width": 20
+    },
+    {
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "height": 30
+          },
+          "encoding": {
+            "color": {
+              "field": "temperature",
+              "scale": {
+                "scheme": "blueorange",
+                "domain": [
+                  -10,
+                  35
+                ],
+                "type": "linear"
+              },
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "temperature",
+                "format": ".1f",
+                "title": "Temperatur [\u00b0C]:",
+                "type": "quantitative"
+              }
+            ],
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          },
+          "name": "view_35b39542054417a5_0"
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "darkred",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "pedestrian_diff",
+                "title": "Passanten mehr in Richtung B\u00fcrkliplatz als Hauptbahnhof",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "axis": {
+                "title": "Passanten in Richtung B\u00fcrkliplatz",
+                "titleFont": "Bahnschrift",
+                "titleFontSize": 14,
+                "titlePadding": 10
+              },
+              "field": "rtl_pedestrians_count",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "dimgray",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "rtl_pedestrians_count",
+                "title": "Passanten in Richtung B\u00fcrkliplatz",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "aggregate": "sum",
+              "field": "pedestrian_grey",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "rect",
+            "height": 0,
+            "opacity": 0
+          },
+          "encoding": {
+            "x": {
+              "field": "max_val",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "temporal"
+            }
+          }
+        }
+      ],
+      "height": 720,
+      "width": 400
+    }
+  ],
+  "data": {
+    "url": "src/time_loc_data.json"
+  },
+  "params": [
+    {
+      "name": "param_1e9efca18e7a2868",
+      "select": {
+        "type": "interval",
+        "encodings": [
+          "x",
+          "y"
+        ]
+      },
+      "bind": "scales",
+      "views": [
+        "view_bdbea3530ee6642c_0",
+        "view_35b39542054417a5_0"
+      ]
+    }
+  ],
+  "spacing": 5,
+  "title": {
+    "text": "Bahnhofstrasse (Mitte)",
+    "anchor": "middle",
+    "font": "Bahnschrift",
+    "fontSize": 30,
+    "offset": 30
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"
+}
