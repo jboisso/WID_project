@@ -11,19 +11,18 @@ import { Footer } from "./Footer";
 
 export function App() {
   const [collapsed, setCollapsed] = useState(false);
-  const [datum, setDatum] = useState(dayjs().format("DD.MM.YYYY"));
+  const [datum, setDatum] = useState(dayjs().format("YYYY-MM-DD"));
   const messstationListe = [
-    "Bahnhofstrasse",
-    "Bundesplatz",
-    "Bernerstrasse",
-    "Langstrasse",
-    "Test",
+    "Bahnhofstrasse (Mitte)",
+    "Bahnhofstrasse (Nord)",
+    "Bahnhofstrasse (Süd)",
+    "Lintheschergasse",
   ];
   const [messstation, setMessstation] = useState(messstationListe[0]);
   const [personengruppe, setPersonengruppe] = useState("alle");
   const [vergleichsart, setVergleichsart] = useState("tot");
   //const [totltr, setTotltr] = useState(""); - Weitermachen
-
+  console.log(datum);
   return (
     <div className={`app ${collapsed ? "collapsed" : ""}`}>
       <Header
