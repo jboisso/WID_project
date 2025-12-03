@@ -1,4 +1,3 @@
-import { VegaEmbed } from "react-vega";
 import { useVegaEmbed } from "react-vega";
 import { useEffect } from "react";
 import React from "react";
@@ -14,9 +13,15 @@ export const MainArea = ({
   const ref = React.useRef(null);
   const embed = useVegaEmbed({
     ref,
-    spec: { chart },
+    spec: chart,
     options: { mode: "vega-lite" },
   });
+
+  embed?.view.data("data", data).runAsync();
+
+  useEffect(() => {
+    embed?.view.data("data", data).runAsync();
+  }, [embed, data]);
 
   return (
     <main>
