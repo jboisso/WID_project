@@ -74,16 +74,15 @@ export const Sidebar = ({
 
           {/* MUI DatePicker */}
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="de">
-            <Box sx={{ mb: 2 }}>
-              <DatePicker
-                label="Datum auswählen"
-                value={datum ? dayjs(datum, "DD.MM.YYYY") : null}
-                onChange={(newValue) =>
-                  setDatum(newValue ? dayjs(newValue).format("DD.MM.YYYY") : "")
-                }
-                format="DD.MM.YYYY"
-              />
-            </Box>
+            <DatePicker
+              label="Datum auswählen"
+              value={datum ? dayjs(datum) : null} // datum im State: YYYY-MM-DD
+              onChange={(newValue) => {
+                // speichert das Datum im Format YYYY-MM-DD
+                setDatum(newValue ? dayjs(newValue).format("YYYY-MM-DD") : "");
+              }}
+              format="DD.MM.YYYY" // Anzeigeformat
+            />
           </LocalizationProvider>
         </AccordionDetails>
       </Accordion>
