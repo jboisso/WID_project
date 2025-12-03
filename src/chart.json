@@ -34,10 +34,7 @@
               "as": "weather_icon"
             }
           ],
-          "groupby": [
-            "hour",
-            "location_id"
-          ]
+          "groupby": ["hour", "location_id"]
         }
       ],
       "width": 30
@@ -54,10 +51,7 @@
               "field": "temperature",
               "scale": {
                 "scheme": "blueorange",
-                "domain": [
-                  -10,
-                  35
-                ],
+                "domain": [-10, 35],
                 "type": "linear"
               },
               "type": "quantitative"
@@ -179,10 +173,7 @@
       "transform": [
         {
           "aggregate": [],
-          "groupby": [
-            "hour",
-            "location_id"
-          ]
+          "groupby": ["hour", "location_id"]
         }
       ],
       "width": 20
@@ -199,10 +190,7 @@
               "field": "temperature",
               "scale": {
                 "scheme": "blueorange",
-                "domain": [
-                  -10,
-                  35
-                ],
+                "domain": [-10, 35],
                 "type": "linear"
               },
               "type": "quantitative"
@@ -303,24 +291,16 @@
       "width": 400
     }
   ],
-  "data": {
-    "url": "src/time_loc_data.json"
-  },
+  "data": { "name": "data" },
   "params": [
     {
       "name": "param_1e9efca18e7a2868",
       "select": {
         "type": "interval",
-        "encodings": [
-          "x",
-          "y"
-        ]
+        "encodings": ["x", "y"]
       },
       "bind": "scales",
-      "views": [
-        "view_bdbea3530ee6642c_0",
-        "view_35b39542054417a5_0"
-      ]
+      "views": ["view_bdbea3530ee6642c_0", "view_35b39542054417a5_0"]
     }
   ],
   "spacing": 5,
