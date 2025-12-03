@@ -25,11 +25,13 @@ export const MainArea = ({
 
   return (
     <main>
-      <p>Gewähltes datum: {datum}</p>
-      <p>Gewählte Messstation: {messstation}</p>
-      <p>Gewählte Personengruppe: {personengruppe}</p>
-      <p>Gewählte Vergleichsart: {vergleichsart}</p>
-      <div ref={ref} />
+      <div className="mainContainer">
+        {/*<p>Gewähltes datum: {datum}</p>
+        <p>Gewählte Messstation: {messstation}</p>
+        <p>Gewählte Personengruppe: {personengruppe}</p>
+        <p>Gewählte Vergleichsart: {vergleichsart}</p>*/}
+        <div ref={ref} />
+      </div>
     </main>
   );
 };
