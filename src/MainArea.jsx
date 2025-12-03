@@ -20,9 +20,6 @@ export const MainArea = ({
       .then((data) => setData(data));
   }, [datum, messstation]);
 
-  console.log(
-    `http://127.0.0.1:8000/api/v1/pedData?ort=${messstation}&datum=${datum}`
-  );
   const ref = React.useRef(null);
   const embed = useVegaEmbed({
     ref,
@@ -38,19 +35,12 @@ export const MainArea = ({
 
   return (
     <main>
+      <div ref={ref} />
       <p>Gewähltes datum: {datum}</p>
       <p>Gewählte Messstation: {messstation}</p>
       <p>Gewählte Personengruppe: {personengruppe}</p>
       <p>Gewählte Vergleichsart: {vergleichsart}</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-      <div ref={ref} />
-      <div className="mainContainer">
-        {/*<p>Gewähltes datum: {datum}</p>
-        <p>Gewählte Messstation: {messstation}</p>
-        <p>Gewählte Personengruppe: {personengruppe}</p>
-        <p>Gewählte Vergleichsart: {vergleichsart}</p>*/}
-        <div ref={ref} />
-      </div>
     </main>
   );
 };

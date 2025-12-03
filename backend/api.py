@@ -77,7 +77,7 @@ app.add_middleware(
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 @app.get("/api/v1/pedData")
-def get_caps(ort: str, datum: str):
+def get_pedData(ort: str, datum: str):
 
         # Daten gemäss Querry aufbereiten
         #___________________________________
@@ -90,7 +90,9 @@ def get_caps(ort: str, datum: str):
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-# Dummy Abfrage
+# Dummy Abfrage / Ausführung
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 # http://127.0.0.1:8000/api/v1/pedData?ort=Bahnhofstrasse%20(Mitte)&datum=2021-09-30
+
+# fastapi dev backend/api.py
