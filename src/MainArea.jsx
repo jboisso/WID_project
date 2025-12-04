@@ -27,7 +27,7 @@ export const MainArea = ({
     options: { mode: "vega-lite" },
   });
 
-  embed?.view.data("data", data).runAsync();
+  //embed?.view.data("data", data).runAsync();
 
   useEffect(() => {
     embed?.view.data("data", data).runAsync();
@@ -35,7 +35,7 @@ export const MainArea = ({
 
   return (
     <main>
-      <div ref={ref} />
+      <div className="mainContainer" ref={ref} />
       <p>Gewähltes datum: {datum}</p>
       <p>Gewählte Messstation: {messstation}</p>
       <p>Gewählte Personengruppe: {personengruppe}</p>

@@ -7,7 +7,7 @@
     },
     "legend": {
       "direction": "vertical",
-      "gradientLength": 720,
+      "gradientLength": 600,
       "gradientThickness": 25,
       "labelAlign": "left",
       "labelFont": "Bahnschrift",
@@ -37,7 +37,7 @@
           "type": "ordinal"
         }
       },
-      "height": 720,
+      "height": 600,
       "transform": [
         {
           "aggregate": [
@@ -50,14 +50,14 @@
           "groupby": ["hour", "location_id"]
         }
       ],
-      "width": 30
+      "width": 40
     },
     {
       "layer": [
         {
           "mark": {
             "type": "rect",
-            "height": 30
+            "height": 25
           },
           "encoding": {
             "color": {
@@ -83,7 +83,7 @@
               "type": "temporal"
             }
           },
-          "name": "view_bdbea3530ee6642c_0"
+          "name": "view_69041f99e0d29ecc_0"
         },
         {
           "mark": {
@@ -114,7 +114,7 @@
           },
           "transform": [
             {
-              "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.rtl_label",
+              "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.rtl_label + ' als in Richtung ' + datum.ltr_label",
               "as": "tooltip_title"
             }
           ]
@@ -150,7 +150,7 @@
           },
           "transform": [
             {
-              "calculate": "'Anzahl Passanten in Richtung ' + datum.rtl_label + ': ' + datum.ltr_pedestrians_count",
+              "calculate": "'Total Anzahl Passanten in Richtung ' + datum.rtl_label + ': ' + datum.ltr_pedestrians_count",
               "as": "tooltip_title"
             }
           ]
@@ -177,8 +177,8 @@
           }
         }
       ],
-      "height": 720,
-      "width": 400
+      "height": 600,
+      "width": 370
     },
     {
       "mark": {
@@ -197,7 +197,7 @@
           "type": "ordinal"
         }
       },
-      "height": 720,
+      "height": 600,
       "transform": [
         {
           "aggregate": [],
@@ -211,7 +211,7 @@
         {
           "mark": {
             "type": "rect",
-            "height": 30
+            "height": 25
           },
           "encoding": {
             "color": {
@@ -237,7 +237,7 @@
               "type": "ordinal"
             }
           },
-          "name": "view_35b39542054417a5_0"
+          "name": "view_5e113bcb956cac45_0"
         },
         {
           "mark": {
@@ -268,7 +268,7 @@
           },
           "transform": [
             {
-              "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.ltr_label",
+              "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.ltr_label + ' als in Richtung ' +datum.rtl_label",
               "as": "tooltip_title"
             }
           ]
@@ -303,7 +303,7 @@
           },
           "transform": [
             {
-              "calculate": "'Anzahl Passanten in Richtung ' + datum.ltr_label + ': ' + datum.rtl_pedestrians_count",
+              "calculate": "'Total Anzahl Passanten in Richtung ' + datum.ltr_label + ': ' + datum.rtl_pedestrians_count",
               "as": "tooltip_title"
             }
           ]
@@ -330,8 +330,8 @@
           }
         }
       ],
-      "height": 720,
-      "width": 400
+      "height": 600,
+      "width": 370
     }
   ],
   "data": {
@@ -345,7 +345,7 @@
         "encodings": ["x", "y"]
       },
       "bind": "scales",
-      "views": ["view_bdbea3530ee6642c_0", "view_35b39542054417a5_0"]
+      "views": ["view_69041f99e0d29ecc_0", "view_5e113bcb956cac45_0"]
     }
   ],
   "spacing": 5,
