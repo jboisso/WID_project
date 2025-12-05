@@ -11,7 +11,7 @@ import { Footer } from "./Footer";
 
 export function App() {
   const [collapsed, setCollapsed] = useState(false);
-  const [datum, setDatum] = useState(dayjs().format("YYYY-MM-DD"));
+  const [datum, setDatum] = useState(dayjs().format("2022-12-05"));
   const messstationListe = [
     "Bahnhofstrasse (Mitte)",
     "Bahnhofstrasse (Nord)",
@@ -19,7 +19,7 @@ export function App() {
     "Lintheschergasse",
   ];
   const [messstation, setMessstation] = useState(messstationListe[0]);
-  const [personengruppe, setPersonengruppe] = useState("alle");
+  const [personengruppe, setPersonengruppe] = useState("Alle");
   const [vergleichsart, setVergleichsart] = useState("tot");
   //const [totltr, setTotltr] = useState(""); - Weitermachen
   console.log(datum);

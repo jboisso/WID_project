@@ -129,7 +129,7 @@ export const Sidebar = ({
                 value={personengruppe}
                 onChange={(event) => setPersonengruppe(event.target.value)}
               >
-                <MenuItem value={"alle"}>alle</MenuItem>
+                <MenuItem value={"Alle"}>Alle</MenuItem>
                 <MenuItem value={"Kinder"}>Kinder</MenuItem>
                 <MenuItem value={"Erwachsene"}>Erwachsene</MenuItem>
               </Select>

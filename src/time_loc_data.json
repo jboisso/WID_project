@@ -6,7 +6,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-0.75,
+    "Temperatur":-0.75,
     "pedestrians_count":10,
     "unverified":false,
     "collection_type":"measured",
@@ -43,7 +43,13 @@
     "pedestrian_grey":4,
     "pedestrian_diff":2.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":0,
+    "child_pedestrian_diff_chi":0.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":4,
+    "adult_pedestrian_diff_chi":2.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642467600000,
@@ -52,7 +58,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-1.27,
+    "Temperatur":-1.27,
     "pedestrians_count":16,
     "unverified":false,
     "collection_type":"measured",
@@ -89,7 +95,13 @@
     "pedestrian_grey":6,
     "pedestrian_diff":4.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":0,
+    "child_pedestrian_diff_chi":1.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":5,
+    "adult_pedestrian_diff_chi":5.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642471200000,
@@ -98,7 +110,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-1.47,
+    "Temperatur":-1.47,
     "pedestrians_count":5,
     "unverified":false,
     "collection_type":"measured",
@@ -135,7 +147,13 @@
     "pedestrian_grey":2,
     "pedestrian_diff":1.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":0,
+    "child_pedestrian_diff_chi":0.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":2,
+    "adult_pedestrian_diff_chi":1.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642474800000,
@@ -144,7 +162,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-1.84,
+    "Temperatur":-1.84,
     "pedestrians_count":10,
     "unverified":false,
     "collection_type":"measured",
@@ -181,7 +199,13 @@
     "pedestrian_grey":4,
     "pedestrian_diff":2.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":0,
+    "child_pedestrian_diff_chi":0.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":4,
+    "adult_pedestrian_diff_chi":2.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642478400000,
@@ -190,7 +214,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-2.43,
+    "Temperatur":-2.43,
     "pedestrians_count":96,
     "unverified":false,
     "collection_type":"measured",
@@ -227,7 +251,13 @@
     "pedestrian_grey":34,
     "pedestrian_diff":28.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":3,
+    "child_pedestrian_diff_chi":0.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":31,
+    "adult_pedestrian_diff_chi":28.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642482000000,
@@ -236,7 +266,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-2.73,
+    "Temperatur":-2.73,
     "pedestrians_count":344,
     "unverified":false,
     "collection_type":"measured",
@@ -273,7 +303,13 @@
     "pedestrian_grey":137,
     "pedestrian_diff":70.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":2,
+    "child_pedestrian_diff_chi":6.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":129,
+    "adult_pedestrian_diff_chi":76.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642485600000,
@@ -282,7 +318,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-2.87,
+    "Temperatur":-2.87,
     "pedestrians_count":695,
     "unverified":false,
     "collection_type":"measured",
@@ -319,7 +355,13 @@
     "pedestrian_grey":219,
     "pedestrian_diff":257.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":1,
+    "child_pedestrian_diff_chi":3.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":215,
+    "adult_pedestrian_diff_chi":260.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642489200000,
@@ -328,7 +370,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-2.29,
+    "Temperatur":-2.29,
     "pedestrians_count":918,
     "unverified":false,
     "collection_type":"measured",
@@ -365,7 +407,13 @@
     "pedestrian_grey":301,
     "pedestrian_diff":316.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":6,
+    "child_pedestrian_diff_chi":3.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":292,
+    "adult_pedestrian_diff_chi":319.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642492800000,
@@ -374,7 +422,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":-1.22,
+    "Temperatur":-1.22,
     "pedestrians_count":947,
     "unverified":false,
     "collection_type":"measured",
@@ -411,7 +459,13 @@
     "pedestrian_grey":396,
     "pedestrian_diff":155.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":8,
+    "child_pedestrian_diff_chi":2.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":388,
+    "adult_pedestrian_diff_chi":153.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642496400000,
@@ -420,7 +474,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":0.45,
+    "Temperatur":0.45,
     "pedestrians_count":1083,
     "unverified":false,
     "collection_type":"measured",
@@ -457,7 +511,13 @@
     "pedestrian_grey":530,
     "pedestrian_diff":23.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":11,
+    "child_pedestrian_diff_chi":5.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":514,
+    "adult_pedestrian_diff_chi":28.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642500000000,
@@ -466,7 +526,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":1.71,
+    "Temperatur":1.71,
     "pedestrians_count":1567,
     "unverified":false,
     "collection_type":"measured",
@@ -503,7 +563,13 @@
     "pedestrian_grey":713,
     "pedestrian_diff":141.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":9,
+    "child_pedestrian_diff_chi":1.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":703,
+    "adult_pedestrian_diff_chi":142.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642503600000,
@@ -512,7 +578,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":3.32,
+    "Temperatur":3.32,
     "pedestrians_count":2096,
     "unverified":false,
     "collection_type":"measured",
@@ -549,7 +615,13 @@
     "pedestrian_grey":1001,
     "pedestrian_diff":94.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":7,
+    "child_pedestrian_diff_chi":1.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":994,
+    "adult_pedestrian_diff_chi":93.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642507200000,
@@ -558,7 +630,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":4.59,
+    "Temperatur":4.59,
     "pedestrians_count":2140,
     "unverified":false,
     "collection_type":"measured",
@@ -595,7 +667,13 @@
     "pedestrian_grey":1043,
     "pedestrian_diff":54.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":13,
+    "child_pedestrian_diff_chi":10.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":1030,
+    "adult_pedestrian_diff_chi":44.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642510800000,
@@ -604,7 +682,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":5.26,
+    "Temperatur":5.26,
     "pedestrians_count":2079,
     "unverified":false,
     "collection_type":"measured",
@@ -641,7 +719,13 @@
     "pedestrian_grey":966,
     "pedestrian_diff":147.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":8,
+    "child_pedestrian_diff_chi":22.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":958,
+    "adult_pedestrian_diff_chi":125.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642514400000,
@@ -650,7 +734,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":5.3,
+    "Temperatur":5.3,
     "pedestrians_count":1896,
     "unverified":false,
     "collection_type":"measured",
@@ -687,7 +771,13 @@
     "pedestrian_grey":839,
     "pedestrian_diff":218.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":22,
+    "child_pedestrian_diff_chi":1.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":817,
+    "adult_pedestrian_diff_chi":217.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642518000000,
@@ -696,7 +786,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":4.04,
+    "Temperatur":4.04,
     "pedestrians_count":1918,
     "unverified":false,
     "collection_type":"measured",
@@ -733,7 +823,13 @@
     "pedestrian_grey":794,
     "pedestrian_diff":330.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":15,
+    "child_pedestrian_diff_chi":3.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":779,
+    "adult_pedestrian_diff_chi":327.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642521600000,
@@ -742,7 +838,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-day",
-    "temperature":2.81,
+    "Temperatur":2.81,
     "pedestrians_count":2126,
     "unverified":false,
     "collection_type":"measured",
@@ -779,7 +875,13 @@
     "pedestrian_grey":844,
     "pedestrian_diff":438.0,
     "weather_icon":"src\/assets\/partly-cloudy-day.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":13,
+    "child_pedestrian_diff_chi":0.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":831,
+    "adult_pedestrian_diff_chi":438.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642525200000,
@@ -788,7 +890,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":1.7,
+    "Temperatur":1.7,
     "pedestrians_count":1855,
     "unverified":false,
     "collection_type":"measured",
@@ -825,7 +927,13 @@
     "pedestrian_grey":751,
     "pedestrian_diff":353.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":12,
+    "child_pedestrian_diff_chi":6.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":739,
+    "adult_pedestrian_diff_chi":347.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642528800000,
@@ -834,7 +942,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"clear-night",
-    "temperature":0.75,
+    "Temperatur":0.75,
     "pedestrians_count":1160,
     "unverified":false,
     "collection_type":"measured",
@@ -871,7 +979,13 @@
     "pedestrian_grey":538,
     "pedestrian_diff":84.0,
     "weather_icon":"src\/assets\/clear-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":3,
+    "child_pedestrian_diff_chi":9.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":535,
+    "adult_pedestrian_diff_chi":75.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642532400000,
@@ -880,7 +994,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":0.2,
+    "Temperatur":0.2,
     "pedestrians_count":550,
     "unverified":false,
     "collection_type":"measured",
@@ -917,7 +1031,13 @@
     "pedestrian_grey":260,
     "pedestrian_diff":30.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":5,
+    "child_pedestrian_diff_chi":2.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":253,
+    "adult_pedestrian_diff_chi":32.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642536000000,
@@ -926,7 +1046,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-0.08,
+    "Temperatur":-0.08,
     "pedestrians_count":438,
     "unverified":false,
     "collection_type":"measured",
@@ -963,7 +1083,13 @@
     "pedestrian_grey":162,
     "pedestrian_diff":114.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":5,
+    "child_pedestrian_diff_chi":1.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":156,
+    "adult_pedestrian_diff_chi":115.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642539600000,
@@ -972,7 +1098,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-0.43,
+    "Temperatur":-0.43,
     "pedestrians_count":375,
     "unverified":false,
     "collection_type":"measured",
@@ -1009,7 +1135,13 @@
     "pedestrian_grey":142,
     "pedestrian_diff":91.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":2,
+    "child_pedestrian_diff_chi":3.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":140,
+    "adult_pedestrian_diff_chi":88.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642543200000,
@@ -1018,7 +1150,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-0.74,
+    "Temperatur":-0.74,
     "pedestrians_count":168,
     "unverified":false,
     "collection_type":"measured",
@@ -1055,7 +1187,13 @@
     "pedestrian_grey":53,
     "pedestrian_diff":62.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":1,
+    "child_pedestrian_diff_chi":1.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":52,
+    "adult_pedestrian_diff_chi":61.0,
+    "adult_max_val":1308
   },
   {
     "timestamp":1642546800000,
@@ -1064,7 +1202,7 @@
     "ltr_label":"Hauptbahnhof",
     "rtl_label":"B\u00fcrkliplatz",
     "weather_condition":"partly-cloudy-night",
-    "temperature":-1.21,
+    "Temperatur":-1.21,
     "pedestrians_count":68,
     "unverified":false,
     "collection_type":"measured",
@@ -1101,6 +1239,12 @@
     "pedestrian_grey":28,
     "pedestrian_diff":12.0,
     "weather_icon":"src\/assets\/partly-cloudy-night.png",
-    "max_val":1319
+    "max_val":1319,
+    "child_pedestrian_grey":0,
+    "child_pedestrian_diff_chi":4.0,
+    "child_max_val":681,
+    "adult_pedestrian_grey":28,
+    "adult_pedestrian_diff_chi":8.0,
+    "adult_max_val":1308
   }
 ]
