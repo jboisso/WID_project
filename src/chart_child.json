@@ -1,0 +1,371 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 300,
+      "continuousHeight": 300,
+      "stroke": null
+    },
+    "legend": {
+      "direction": "vertical",
+      "gradientLength": 600,
+      "gradientThickness": 25,
+      "labelAlign": "left",
+      "labelFont": "Bahnschrift",
+      "labelFontSize": 12,
+      "orient": "right",
+      "titleFont": "Bahnschrift",
+      "titleFontSize": 20,
+      "titleFontWeight": 200,
+      "titleOrient": "right"
+    }
+  },
+  "concat": [
+    {
+      "mark": {
+        "type": "image",
+        "height": 25,
+        "width": 25
+      },
+      "encoding": {
+        "url": {
+          "field": "weather_icon",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": null,
+          "field": "hour",
+          "type": "ordinal"
+        }
+      },
+      "height": 600,
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "weather_icon",
+              "as": "weather_icon"
+            }
+          ],
+          "groupby": [
+            "hour",
+            "location_id"
+          ]
+        }
+      ],
+      "width": 40
+    },
+    {
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "height": 25
+          },
+          "encoding": {
+            "color": {
+              "field": "temperature",
+              "scale": {
+                "scheme": "blueorange",
+                "domain": [
+                  -10,
+                  35
+                ],
+                "type": "linear"
+              },
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "temperature",
+                "format": ".1f",
+                "title": "Temperatur [\u00b0C]:",
+                "type": "quantitative"
+              }
+            ],
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "temporal"
+            }
+          },
+          "name": "view_69041f99e0d29ecc_0"
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#6A11B3",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "tooltip_title",
+                "title": " ",
+                "type": "nominal"
+              }
+            ],
+            "x": {
+              "axis": {
+                "title": null
+              },
+              "field": "child_ltr_pedestrians_count",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          },
+          "transform": [
+            {
+              "calculate": "datum.child_pedestrian_diff + ' Kinder mehr in Richtung ' + datum.rtl_label + ' als in Richtung ' + datum.ltr_label",
+              "as": "tooltip_title"
+            }
+          ]
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#8950B8",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "tooltip_title",
+                "title": " ",
+                "type": "nominal"
+              }
+            ],
+            "x": {
+              "aggregate": "sum",
+              "axis": {
+                "title": null
+              },
+              "field": "child_pedestrian_grey",
+              "sort": "descending",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          },
+          "transform": [
+            {
+              "calculate": "'Totale Anzahl Kinder in Richtung ' + datum.rtl_label + ': ' + datum.child_ltr_pedestrians_count",
+              "as": "tooltip_title"
+            }
+          ]
+        },
+        {
+          "mark": {
+            "type": "rect",
+            "height": 0,
+            "opacity": 0
+          },
+          "encoding": {
+            "x": {
+              "axis": {
+                "title": null
+              },
+              "field": "max_val",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "temporal"
+            }
+          }
+        }
+      ],
+      "height": 600,
+      "width": 370
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Bahnschrift",
+        "fontSize": 15
+      },
+      "encoding": {
+        "text": {
+          "field": "hour",
+          "type": "ordinal"
+        },
+        "y": {
+          "axis": null,
+          "field": "hour",
+          "type": "ordinal"
+        }
+      },
+      "height": 600,
+      "transform": [
+        {
+          "aggregate": [],
+          "groupby": [
+            "hour",
+            "location_id"
+          ]
+        }
+      ],
+      "width": 20
+    },
+    {
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "height": 25
+          },
+          "encoding": {
+            "color": {
+              "field": "temperature",
+              "scale": {
+                "scheme": "blueorange",
+                "domain": [
+                  -10,
+                  35
+                ],
+                "type": "linear"
+              },
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "temperature",
+                "format": ".1f",
+                "title": "Temperatur [\u00b0C]:",
+                "type": "quantitative"
+              }
+            ],
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          },
+          "name": "view_5e113bcb956cac45_0"
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#6A11B3",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "tooltip_title",
+                "title": " ",
+                "type": "nominal"
+              }
+            ],
+            "x": {
+              "axis": {
+                "title": null
+              },
+              "field": "child_rtl_pedestrians_count",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          },
+          "transform": [
+            {
+              "calculate": "datum.child_pedestrian_diff + ' Kinder mehr in Richtung ' + datum.ltr_label + ' als in Richtung ' +datum.rtl_label",
+              "as": "tooltip_title"
+            }
+          ]
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#8950B8",
+            "height": 20
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "tooltip_title",
+                "title": " ",
+                "type": "nominal"
+              }
+            ],
+            "x": {
+              "aggregate": "sum",
+              "axis": {
+                "title": null
+              },
+              "field": "child_pedestrian_grey",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "ordinal"
+            }
+          },
+          "transform": [
+            {
+              "calculate": "'Totale Anzahl Kinder in Richtung ' + datum.ltr_label + ': ' + datum.rtl_pedestrians_count",
+              "as": "tooltip_title"
+            }
+          ]
+        },
+        {
+          "mark": {
+            "type": "rect",
+            "height": 0,
+            "opacity": 0
+          },
+          "encoding": {
+            "x": {
+              "axis": {
+                "title": null
+              },
+              "field": "max_val",
+              "type": "quantitative"
+            },
+            "y": {
+              "axis": null,
+              "field": "hour",
+              "type": "temporal"
+            }
+          }
+        }
+      ],
+      "height": 600,
+      "width": 370
+    }
+  ],
+  "data": {
+    "url": "time_loc_data.json"
+  },
+  "params": [
+    {
+      "name": "param_1e9efca18e7a2868",
+      "select": {
+        "type": "interval",
+        "encodings": [
+          "x",
+          "y"
+        ]
+      },
+      "bind": "scales",
+      "views": [
+        "view_69041f99e0d29ecc_0",
+        "view_5e113bcb956cac45_0"
+      ]
+    }
+  ],
+  "spacing": 5,
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json"
+}
