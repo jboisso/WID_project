@@ -29,7 +29,15 @@ export const Footer = () => {
             >
               Tobias Schulthess
             </Link>{" "}
-            im Modul 3050 WID
+            im Modul 3050 WID - Daten: ©{" "}
+            <Link
+              href="https://data.stadt-zuerich.ch/dataset/hystreet_fussgaengerfrequenzen"
+              target="_blank"
+              rel="noopener"
+              underline="hover"
+            >
+              Stadt Zürich
+            </Link>
           </Typography>
         </Stack>
       </Container>

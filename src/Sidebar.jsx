@@ -82,6 +82,8 @@ export const Sidebar = ({
                 setDatum(newValue ? dayjs(newValue).format("YYYY-MM-DD") : "");
               }}
               format="DD.MM.YYYY" // Anzeigeformat
+              minDate={dayjs("2022-09-28")}
+              maxDate={dayjs("2025-07-29")}
             />
           </LocalizationProvider>
         </AccordionDetails>

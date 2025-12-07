@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import dayjs from "dayjs";
 import { Header } from "./Header";
@@ -18,9 +18,30 @@ export function App() {
     "Bahnhofstrasse (Süd)",
     "Lintheschergasse",
   ];
+  const rtlListe = [
+    "Bürkliplatz",
+    "Hauptbahnhof",
+    "Hauptbahnhof",
+    "Uraniastrasse",
+  ];
+  const ltrListe = [
+    "Hauptbahnhof",
+    "Bürkliplatz",
+    "Bürkliplatz",
+    "Hauptbahnhof",
+  ];
+  const [rtl, setRtl] = useState(rtlListe[0]);
+  const [ltr, setLtr] = useState(ltrListe[0]);
   const [messstation, setMessstation] = useState(messstationListe[0]);
   const [personengruppe, setPersonengruppe] = useState("Alle");
   const [vergleichsart, setVergleichsart] = useState("tot");
+
+  useEffect(() => {
+    const index = messstationListe.indexOf(messstation);
+    setRtl(rtlListe[index]);
+    setLtr(ltrListe[index]);
+  }, [messstation]);
+
   //const [totltr, setTotltr] = useState(""); - Weitermachen
   console.log(datum);
   return (
@@ -40,6 +61,8 @@ export function App() {
         messstation={messstation}
         personengruppe={personengruppe}
         vergleichsart={vergleichsart}
+        rtl={rtl}
+        ltr={ltr}
       />
       <Sidebar
         datum={datum}

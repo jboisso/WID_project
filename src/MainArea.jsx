@@ -12,6 +12,8 @@ export const MainArea = ({
   messstation,
   personengruppe,
   vergleichsart,
+  rtl,
+  ltr,
 }) => {
   const [data, setData] = useState([]);
 
@@ -48,15 +50,17 @@ export const MainArea = ({
     <main>
       <div className="grafik">
         <h1 className="titel" id="grafikTitel">
-          Titel der Grafik
+          Herrschte am {new Date(datum).toLocaleDateString("de-CH")}{" "}
+          Fussgängerstau in Richtung {ltr}?
         </h1>
         <h3 className="titel" id="grafikuntertitel">
-          Untertitel der Grafik
+          Summen der stündlichen Fussgängerzählung an der {messstation} in
+          Zürich (Schweiz)
         </h3>
         <div ref={ref} />
         <div className="achsbeschriftung">
-          <h3>Personen von ltr</h3>
-          <h3>Personen von rtl</h3>
+          <h5>Personen in Richtung {ltr}</h5>
+          <h5>Personen in Richtung {rtl}</h5>
         </div>
         <p>
           Davon sind so und so viele Passanten in Zone XY, soviele in YZ und

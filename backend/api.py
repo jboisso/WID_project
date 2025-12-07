@@ -19,7 +19,7 @@ df_pedData = df_copy[['timestamp', 'location_name',
                     'pedestrians_count', 'ltr_pedestrians_count',
                     'rtl_pedestrians_count', 'adult_ltr_pedestrians_count',
                     'adult_rtl_pedestrians_count', 'child_rtl_pedestrians_count',
-                    'child_ltr_pedestrians_count', 'rtl_label', 'ltr_label']]
+                    'child_ltr_pedestrians_count', 'rtl_label', 'ltr_label', 'collection_type']]
 
 image_paths = ["src/assets/clear-day.png","src/assets/clear-night.png", "src/assets/cloudy.png", "src/assets/fog.png", "src/assets/partly-cloudy-day.png", "src/assets/partly-cloudy-night.png", "src/assets/rain.png", "src/assets/snow.png"]
 
@@ -103,6 +103,15 @@ def get_pedData(ort: str, datum: str):
 
         df_pedData_filterd = df_pedData.query('location_name == @ort and date== @datum_dt')
         data_json = df_pedData_filterd.to_dict(orient='records')
+
+        return data_json
+
+@app.get("/api/v1/Locations")
+def get_location():
+        df_pedData_filtered = df_pedData[df_pedData["collection_type"] == "measured"]
+        df_pedData_filtered = df_pedData_filtered.drop_duplicates(subset=["date", "location_name"])
+        df_pedData_filtered = df_pedData_filtered[["date", "location_name"]]
+        data_json = df_pedData_filtered.to_dict(orient='records')
 
         return data_json
 

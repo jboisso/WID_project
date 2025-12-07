@@ -21,7 +21,7 @@ export const Header = ({
         <img src="src/assets/fhnw-logo-small.svg" alt="FHNW Logo" />
       </a>
       <Typography variant="h5">
-        Am {datum} liefen an der {messstation}
+        Fussgängerzählung Bahnhofstrasse Zürich
         {/*insgesammt {totltr} Fussgänger nach {ltr} und {totrtl} Fussgänger nach {rtl}*/}
       </Typography>
       <Button variant="contained" onClick={() => setCollapsed(!collapsed)}>
