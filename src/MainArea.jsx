@@ -67,7 +67,7 @@ export const MainArea = ({
           noch einige in AB durchgelaufen.
         </p>
       </div>
-      <div>
+      <div className="karte">
         <arcgis-embedded-map
           style={{ height: "600px", width: "700px" }}
           item-id="8f4555a1444e4d358f995fc14c4a44cc"

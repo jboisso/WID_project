@@ -62,10 +62,6 @@ export function App() {
         setCollapsed={setCollapsed}
         datum={datum}
         messstation={messstation}
-        // totltr={totltr} -weitermachen
-        // ltr={ltr} -weitermachen
-        // totrtl={totrtl} -weitermachen
-        // rtl={rtl} -weitermachen
       />
       <MainArea
         datum={datum}

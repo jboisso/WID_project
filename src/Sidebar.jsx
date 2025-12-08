@@ -18,8 +18,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { useState, useEffect } from "react";
-
 import {
   MapContainer,
   TileLayer,
@@ -39,14 +37,6 @@ export const Sidebar = ({
   vergleichsart,
   setVergleichsart,
 }) => {
-  const [locData, setLocData] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/v1/Locations?&datum=${datum}`)
-      .then((response) => response.json())
-      .then((data) => setLocData(data));
-  }, [datum]);
-
   return (
     <aside>
       <Accordion defaultExpanded>
