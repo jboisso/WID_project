@@ -50,102 +50,113 @@
               "field": "hour",
               "type": "temporal"
             }
-          },
-          "name": "view_ec50dc698053d451_0"
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#6A11B3",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "child_ltr_pedestrians_count",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "datum.child_pedestrian_diff + ' Kinder mehr in Richtung ' + datum.rtl_label + ' als in Richtung ' + datum.ltr_label",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#8950B8",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "aggregate": "sum",
-              "axis": {
-                "title": null
-              },
-              "field": "child_pedestrian_grey",
-              "sort": "descending",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "'Totale Anzahl Kinder in Richtung ' + datum.rtl_label + ': ' + datum.child_ltr_pedestrians_count",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "rect",
-            "height": 0,
-            "opacity": 0
-          },
-          "encoding": {
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "child_max_val",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "temporal"
-            }
           }
+        },
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#6A11B3",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "child_ltr_pedestrians_count",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "name": "view_1fea68014035f830_0",
+              "transform": [
+                {
+                  "calculate": "datum.child_pedestrian_diff + ' Kinder mehr in Richtung ' + datum.rtl_label + ' als in Richtung ' + datum.ltr_label",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#8950B8",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "aggregate": "sum",
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "child_pedestrian_grey",
+                  "sort": "descending",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "transform": [
+                {
+                  "calculate": "'Totale Anzahl Kinder in Richtung ' + datum.rtl_label + ': ' + datum.child_ltr_pedestrians_count",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "rect",
+                "height": 0,
+                "opacity": 0
+              },
+              "encoding": {
+                "x": {
+                  "axis": {
+                    "title": null
+                  },
+                  "field": "child_max_val",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "temporal"
+                }
+              }
+            }
+          ]
         }
       ],
       "height": 600,
+      "resolve": {
+        "scale": {
+          "x": "independent"
+        }
+      },
       "width": 370
     },
     {
@@ -204,101 +215,112 @@
               "field": "hour",
               "type": "ordinal"
             }
-          },
-          "name": "view_e873af3da72ae831_0"
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#6A11B3",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "child_rtl_pedestrians_count",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "datum.child_pedestrian_diff + ' Kinder mehr in Richtung ' + datum.ltr_label + ' als in Richtung ' +datum.rtl_label",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#8950B8",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "aggregate": "sum",
-              "axis": {
-                "title": null
-              },
-              "field": "child_pedestrian_grey",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "'Totale Anzahl Kinder in Richtung ' + datum.ltr_label + ': ' + datum.child_rtl_pedestrians_count",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "rect",
-            "height": 0,
-            "opacity": 0
-          },
-          "encoding": {
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "child_max_val",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "temporal"
-            }
           }
+        },
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#6A11B3",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "child_rtl_pedestrians_count",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "name": "view_3e9c7b066051685d_0",
+              "transform": [
+                {
+                  "calculate": "datum.child_pedestrian_diff + ' Kinder mehr in Richtung ' + datum.ltr_label + ' als in Richtung ' +datum.rtl_label",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#8950B8",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "aggregate": "sum",
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "child_pedestrian_grey",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "transform": [
+                {
+                  "calculate": "'Totale Anzahl Kinder in Richtung ' + datum.ltr_label + ': ' + datum.child_rtl_pedestrians_count",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "rect",
+                "height": 0,
+                "opacity": 0
+              },
+              "encoding": {
+                "x": {
+                  "axis": {
+                    "title": null
+                  },
+                  "field": "child_max_val",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "temporal"
+                }
+              }
+            }
+          ]
         }
       ],
       "height": 600,
+      "resolve": {
+        "scale": {
+          "x": "independent"
+        }
+      },
       "width": 370
     },
     {
@@ -366,7 +388,7 @@
         "encodings": ["x", "y"]
       },
       "bind": "scales",
-      "views": ["view_ec50dc698053d451_0", "view_e873af3da72ae831_0"]
+      "views": ["view_1fea68014035f830_0", "view_3e9c7b066051685d_0"]
     }
   ],
   "spacing": 5,

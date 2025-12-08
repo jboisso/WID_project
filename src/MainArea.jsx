@@ -67,6 +67,17 @@ export const MainArea = ({
           noch einige in AB durchgelaufen.
         </p>
       </div>
+      <div>
+        <arcgis-embedded-map
+          style={{ height: "600px", width: "700px" }}
+          item-id="8f4555a1444e4d358f995fc14c4a44cc"
+          theme="light"
+          center="8.539018500000001,47.37222220934456"
+          scale="9027.977411"
+          portal-url="https://ivgi.maps.arcgis.com"
+        ></arcgis-embedded-map>
+      </div>
+
       <p>Gewähltes datum: {datum}</p>
       <p>Gewählte Messstation: {messstation}</p>
       <p>Gewählte Personengruppe: {personengruppe}</p>

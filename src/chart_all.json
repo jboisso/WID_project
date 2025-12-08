@@ -50,102 +50,113 @@
               "field": "hour",
               "type": "temporal"
             }
-          },
-          "name": "view_ec50dc698053d451_0"
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#6A11B3",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "ltr_pedestrians_count",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.rtl_label + ' als in Richtung ' + datum.ltr_label",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#8950B8",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "aggregate": "sum",
-              "axis": {
-                "title": null
-              },
-              "field": "pedestrian_grey",
-              "sort": "descending",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "'Total Anzahl Passanten in Richtung ' + datum.rtl_label + ': ' + datum.ltr_pedestrians_count",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "rect",
-            "height": 0,
-            "opacity": 0
-          },
-          "encoding": {
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "max_val",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "temporal"
-            }
           }
+        },
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#6A11B3",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "ltr_pedestrians_count",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "name": "view_57d271a53197de68_0",
+              "transform": [
+                {
+                  "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.rtl_label + ' als in Richtung ' + datum.ltr_label",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#8950B8",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "aggregate": "sum",
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "pedestrian_grey",
+                  "sort": "descending",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "transform": [
+                {
+                  "calculate": "'Total Anzahl Passanten in Richtung ' + datum.rtl_label + ': ' + datum.ltr_pedestrians_count",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "rect",
+                "height": 0,
+                "opacity": 0
+              },
+              "encoding": {
+                "x": {
+                  "axis": {
+                    "title": null
+                  },
+                  "field": "max_val",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "temporal"
+                }
+              }
+            }
+          ]
         }
       ],
       "height": 600,
+      "resolve": {
+        "scale": {
+          "x": "independent"
+        }
+      },
       "width": 370
     },
     {
@@ -204,101 +215,112 @@
               "field": "hour",
               "type": "ordinal"
             }
-          },
-          "name": "view_e873af3da72ae831_0"
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#6A11B3",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "rtl_pedestrians_count",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.ltr_label + ' als in Richtung ' +datum.rtl_label",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "bar",
-            "color": "#8950B8",
-            "height": 20
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "tooltip_title",
-                "title": " ",
-                "type": "nominal"
-              }
-            ],
-            "x": {
-              "aggregate": "sum",
-              "axis": {
-                "title": null
-              },
-              "field": "pedestrian_grey",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "ordinal"
-            }
-          },
-          "transform": [
-            {
-              "calculate": "'Total Anzahl Passanten in Richtung ' + datum.ltr_label + ': ' + datum.rtl_pedestrians_count",
-              "as": "tooltip_title"
-            }
-          ]
-        },
-        {
-          "mark": {
-            "type": "rect",
-            "height": 0,
-            "opacity": 0
-          },
-          "encoding": {
-            "x": {
-              "axis": {
-                "title": null
-              },
-              "field": "max_val",
-              "type": "quantitative"
-            },
-            "y": {
-              "axis": null,
-              "field": "hour",
-              "type": "temporal"
-            }
           }
+        },
+        {
+          "layer": [
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#6A11B3",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "rtl_pedestrians_count",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "name": "view_bdf76ea6413b0bf3_0",
+              "transform": [
+                {
+                  "calculate": "datum.pedestrian_diff + ' Passanten mehr in Richtung ' + datum.ltr_label + ' als in Richtung ' +datum.rtl_label",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "bar",
+                "color": "#8950B8",
+                "height": 20
+              },
+              "encoding": {
+                "tooltip": [
+                  {
+                    "field": "tooltip_title",
+                    "title": " ",
+                    "type": "nominal"
+                  }
+                ],
+                "x": {
+                  "aggregate": "sum",
+                  "axis": {
+                    "orient": "bottom",
+                    "title": null
+                  },
+                  "field": "pedestrian_grey",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "ordinal"
+                }
+              },
+              "transform": [
+                {
+                  "calculate": "'Total Anzahl Passanten in Richtung ' + datum.ltr_label + ': ' + datum.rtl_pedestrians_count",
+                  "as": "tooltip_title"
+                }
+              ]
+            },
+            {
+              "mark": {
+                "type": "rect",
+                "height": 0,
+                "opacity": 0
+              },
+              "encoding": {
+                "x": {
+                  "axis": {
+                    "title": null
+                  },
+                  "field": "max_val",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "axis": null,
+                  "field": "hour",
+                  "type": "temporal"
+                }
+              }
+            }
+          ]
         }
       ],
       "height": 600,
+      "resolve": {
+        "scale": {
+          "x": "independent"
+        }
+      },
       "width": 370
     },
     {
@@ -366,7 +388,7 @@
         "encodings": ["x", "y"]
       },
       "bind": "scales",
-      "views": ["view_ec50dc698053d451_0", "view_e873af3da72ae831_0"]
+      "views": ["view_57d271a53197de68_0", "view_bdf76ea6413b0bf3_0"]
     }
   ],
   "spacing": 5,
