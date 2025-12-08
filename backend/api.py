@@ -107,13 +107,23 @@ def get_pedData(ort: str, datum: str):
         return data_json
 
 @app.get("/api/v1/Locations")
-def get_location():
-        df_pedData_filtered = df_pedData[df_pedData["collection_type"] == "measured"]
-        df_pedData_filtered = df_pedData_filtered.drop_duplicates(subset=["date", "location_name"])
-        df_pedData_filtered = df_pedData_filtered[["date", "location_name"]]
-        data_json = df_pedData_filtered.to_dict(orient='records')
+def get_location(datum: str):
 
-        return data_json
+    datum_dt = pd.to_datetime(datum).date()
+    df_pedData_filtered = df_pedData.query('date == @datum_dt')
+    df_pedData_filtered = df_pedData_filtered[df_pedData_filtered["collection_type"] == "measured"]
+    df_pedData_filtered = df_pedData_filtered.drop_duplicates(subset=["date", "location_name"])
+
+
+    df_grouped = (
+        df_pedData_filtered
+        .groupby("date")["location_name"]
+        .apply(list)
+        .reset_index(name="locations")
+    )
+    data_json = df_grouped.to_dict(orient="records")
+    return data_json
+
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
