@@ -11,7 +11,7 @@ export const MainArea = ({
   datum,
   messstation,
   personengruppe,
-  vergleichsart,
+  zone,
   rtl,
   ltr,
 }) => {
@@ -19,11 +19,11 @@ export const MainArea = ({
 
   useEffect(() => {
     fetch(
-      `http://127.0.0.1:8000/api/v1/pedData?ort=${messstation}&datum=${datum}`
+      `http://127.0.0.1:8000/api/v1/pedData?ort=${messstation}&datum=${datum}&zone=${zone}`
     )
       .then((response) => response.json())
       .then((data) => setData(data));
-  }, [datum, messstation]);
+  }, [datum, messstation, zone]);
 
   // set charts dictionnary
   const charts = {
@@ -67,21 +67,11 @@ export const MainArea = ({
           noch einige in AB durchgelaufen.
         </p>
       </div>
-      <div className="karte">
-        <arcgis-embedded-map
-          style={{ height: "600px", width: "700px" }}
-          item-id="8f4555a1444e4d358f995fc14c4a44cc"
-          theme="light"
-          center="8.539018500000001,47.37222220934456"
-          scale="9027.977411"
-          portal-url="https://ivgi.maps.arcgis.com"
-        ></arcgis-embedded-map>
-      </div>
 
       <p>Gewähltes datum: {datum}</p>
       <p>Gewählte Messstation: {messstation}</p>
       <p>Gewählte Personengruppe: {personengruppe}</p>
-      <p>Gewählte Vergleichsart: {vergleichsart}</p>
+      <p>Gewählte Zone: {zone}</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </main>
   );

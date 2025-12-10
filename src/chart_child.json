@@ -110,7 +110,7 @@
                     "orient": "bottom",
                     "title": null
                   },
-                  "field": "child_pedestrian_grey",
+                  "field": "child_pedestrian_same",
                   "sort": "descending",
                   "type": "quantitative"
                 },
@@ -275,7 +275,7 @@
                     "orient": "bottom",
                     "title": null
                   },
-                  "field": "child_pedestrian_grey",
+                  "field": "child_pedestrian_same",
                   "type": "quantitative"
                 },
                 "y": {

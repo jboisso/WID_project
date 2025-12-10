@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -37,9 +39,15 @@ export const Sidebar = ({
   messstationListe,
   personengruppe,
   setPersonengruppe,
-  vergleichsart,
-  setVergleichsart,
+  zone,
+  setZone,
 }) => {
+  useEffect(() => {
+    if (personengruppe !== "alle") {
+      setZone("all"); // default value when disabled
+    }
+  }, [personengruppe]);
+
   return (
     <aside>
       <Accordion defaultExpanded>
@@ -102,19 +110,19 @@ export const Sidebar = ({
         </AccordionSummary>
         <AccordionDetails>
           <Box sx={{ minWidth: 120, mt: 2 }}>
-            <FormControl fullWidth>
-              <InputLabel id="vergleichsart-select-label">
-                Vergleichsart
-              </InputLabel>
+            <FormControl fullWidth disabled={personengruppe !== "Alle"}>
+              <InputLabel id="zone-select-label">Zone</InputLabel>
               <Select
-                labelId="vergleichsart-select-label"
-                id="vergleichsart-select"
-                label="Vergleichsart"
-                value={vergleichsart}
-                onChange={(event) => setVergleichsart(event.target.value)}
+                labelId="zone-select-label"
+                id="zone-select"
+                label="Zone"
+                value={zone}
+                onChange={(event) => setZone(event.target.value)}
               >
-                <MenuItem value={"diff"}>Differenz zeigen</MenuItem>
-                <MenuItem value={"tot"}>Total zeigen</MenuItem>
+                <MenuItem value={"all"}>Ganzer Bereich</MenuItem>
+                <MenuItem value={"1"}>Zone 1</MenuItem>
+                <MenuItem value={"2"}>Zone 2</MenuItem>
+                <MenuItem value={"3"}>Zone 3</MenuItem>
               </Select>
             </FormControl>
           </Box>

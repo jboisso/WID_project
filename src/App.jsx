@@ -5,6 +5,7 @@ import { Header } from "./Header";
 import { MainArea } from "./MainArea";
 import { Sidebar } from "./Sidebar";
 import { Footer } from "./Footer";
+import { ZoomInOutlined } from "@mui/icons-material";
 
 //dies ist ein Test
 //ein weiterer Test
@@ -46,7 +47,7 @@ export function App() {
   const [ltr, setLtr] = useState(ltrListe[0]);
   const [messstation, setMessstation] = useState(messstationListe[0]);
   const [personengruppe, setPersonengruppe] = useState("Alle");
-  const [vergleichsart, setVergleichsart] = useState("tot");
+  const [zone, setZone] = useState("all");
 
   useEffect(() => {
     setRtl(rtlListe[messstation]);
@@ -67,7 +68,7 @@ export function App() {
         datum={datum}
         messstation={messstation}
         personengruppe={personengruppe}
-        vergleichsart={vergleichsart}
+        zone={zone}
         rtl={rtl}
         ltr={ltr}
       />
@@ -79,8 +80,8 @@ export function App() {
         messstationListe={messstationListe}
         personengruppe={personengruppe}
         setPersonengruppe={setPersonengruppe}
-        vergleichsart={vergleichsart}
-        setVergleichsart={setVergleichsart}
+        zone={zone}
+        setZone={setZone}
       />
       <Footer />
     </div>
