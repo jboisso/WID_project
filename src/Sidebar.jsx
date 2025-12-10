@@ -83,9 +83,8 @@ export const Sidebar = ({
                 setDatum(newValue ? dayjs(newValue).format("YYYY-MM-DD") : "");
               }}
               format="DD.MM.YYYY" // Anzeigeformat
-              shouldDisableDate={(date) =>
-                date.isSame(dayjs("2025-12-03"), "day")
-              } // Nicht verfügbare Daten ausblenden (Feature Ergänzen)
+              minDate={dayjs("2022-09-28")}
+              maxDate={dayjs("2025-07-29")}
             />
           </LocalizationProvider>
         </AccordionDetails>
@@ -133,7 +132,7 @@ export const Sidebar = ({
                 value={personengruppe}
                 onChange={(event) => setPersonengruppe(event.target.value)}
               >
-                <MenuItem value={"alle"}>alle</MenuItem>
+                <MenuItem value={"Alle"}>Alle</MenuItem>
                 <MenuItem value={"Kinder"}>Kinder</MenuItem>
                 <MenuItem value={"Erwachsene"}>Erwachsene</MenuItem>
               </Select>

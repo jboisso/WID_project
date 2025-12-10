@@ -1,7 +1,10 @@
 import { useVegaEmbed } from "react-vega";
 import { useState, useEffect } from "react";
 import React from "react";
-import chart from "./chart.json";
+import all_chart from "./chart_all.json";
+import adult_chart from "./chart_adult.json";
+import child_chart from "./chart_child.json";
+
 //import data from "./time_loc_data.json";
 
 export const MainArea = ({
@@ -9,6 +12,8 @@ export const MainArea = ({
   messstation,
   personengruppe,
   vergleichsart,
+  rtl,
+  ltr,
 }) => {
   const [data, setData] = useState([]);
 
@@ -20,14 +25,22 @@ export const MainArea = ({
       .then((data) => setData(data));
   }, [datum, messstation]);
 
+  // set charts dictionnary
+  const charts = {
+    Alle: all_chart,
+    Erwachsene: adult_chart,
+    Kinder: child_chart,
+  };
+
+  // set correct spec
+  const spec = charts[personengruppe] ?? all_chart;
+
   const ref = React.useRef(null);
   const embed = useVegaEmbed({
     ref,
-    spec: chart,
+    spec,
     options: { mode: "vega-lite" },
   });
-
-  //embed?.view.data("data", data).runAsync();
 
   useEffect(() => {
     embed?.view.data("data", data).runAsync();
@@ -35,7 +48,36 @@ export const MainArea = ({
 
   return (
     <main>
-      <div className="mainContainer" ref={ref} />
+      <div className="grafik">
+        <h1 className="titel" id="grafikTitel">
+          Herrschte am {new Date(datum).toLocaleDateString("de-CH")}{" "}
+          Fussgängerstau in Richtung {ltr}?
+        </h1>
+        <h3 className="titel" id="grafikuntertitel">
+          Summen der stündlichen Fussgängerzählung an der {messstation} in
+          Zürich (Schweiz)
+        </h3>
+        <div ref={ref} />
+        <div className="achsbeschriftung">
+          <h5>Personen in Richtung {ltr}</h5>
+          <h5>Personen in Richtung {rtl}</h5>
+        </div>
+        <p>
+          Davon sind so und so viele Passanten in Zone XY, soviele in YZ und
+          noch einige in AB durchgelaufen.
+        </p>
+      </div>
+      <div className="karte">
+        <arcgis-embedded-map
+          style={{ height: "600px", width: "700px" }}
+          item-id="8f4555a1444e4d358f995fc14c4a44cc"
+          theme="light"
+          center="8.539018500000001,47.37222220934456"
+          scale="9027.977411"
+          portal-url="https://ivgi.maps.arcgis.com"
+        ></arcgis-embedded-map>
+      </div>
+
       <p>Gewähltes datum: {datum}</p>
       <p>Gewählte Messstation: {messstation}</p>
       <p>Gewählte Personengruppe: {personengruppe}</p>

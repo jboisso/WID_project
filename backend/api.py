@@ -1,10 +1,7 @@
 from fastapi import FastAPI
 import pandas as pd
 import os
-import datetime as dt
-from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
-
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Datensatz aufbereiten
@@ -22,7 +19,7 @@ df_pedData = df_copy[['timestamp', 'location_name',
                     'pedestrians_count', 'ltr_pedestrians_count',
                     'rtl_pedestrians_count', 'adult_ltr_pedestrians_count',
                     'adult_rtl_pedestrians_count', 'child_rtl_pedestrians_count',
-                    'child_ltr_pedestrians_count', 'rtl_label', 'ltr_label']]
+                    'child_ltr_pedestrians_count', 'rtl_label', 'ltr_label', 'collection_type']]
 
 image_paths = ["src/assets/clear-day.png","src/assets/clear-night.png", "src/assets/cloudy.png", "src/assets/fog.png", "src/assets/partly-cloudy-day.png", "src/assets/partly-cloudy-night.png", "src/assets/rain.png", "src/assets/snow.png"]
 
@@ -44,6 +41,27 @@ df_pedData['max_val'] = (
       .transform('max')      # max per column per date
       .max(axis=1)           # max across the two columns
 )+20
+
+# Additional columns for Adult and Children Charts:
+df_pedData['child_pedestrian_grey'] = df_pedData[['child_ltr_pedestrians_count', 'child_rtl_pedestrians_count']].min(axis=1)
+df_pedData['child_pedestrian_diff'] = ((df_pedData['child_ltr_pedestrians_count'] - df_pedData['child_rtl_pedestrians_count'])**2)**0.5
+df_pedData['child_max_val'] = (
+    df_pedData.groupby(['date'])[['child_ltr_pedestrians_count', 'child_rtl_pedestrians_count']]
+      .transform('max')      # max per column per date
+      .max(axis=1)           # max across the two columns
+)+20
+
+df_pedData['adult_pedestrian_grey'] = df_pedData[['adult_ltr_pedestrians_count', 'adult_rtl_pedestrians_count']].min(axis=1)
+df_pedData['adult_pedestrian_diff'] = ((df_pedData['adult_ltr_pedestrians_count'] - df_pedData['adult_rtl_pedestrians_count'])**2)**0.5
+df_pedData['adult_max_val'] = (
+    df_pedData.groupby(['date'])[['adult_ltr_pedestrians_count', 'adult_rtl_pedestrians_count']]
+      .transform('max')      # max per column per date
+      .max(axis=1)           # max across the two columns
+)+20
+
+# Spaltenbennenung in API
+df_pedData = df_pedData.rename(columns={'temperature': 'Temperatur'})
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # FastAPI indizieren
@@ -87,6 +105,25 @@ def get_pedData(ort: str, datum: str):
         data_json = df_pedData_filterd.to_dict(orient='records')
 
         return data_json
+
+@app.get("/api/v1/Locations")
+def get_location(datum: str):
+
+    datum_dt = pd.to_datetime(datum).date()
+    df_pedData_filtered = df_pedData.query('date == @datum_dt')
+    df_pedData_filtered = df_pedData_filtered[df_pedData_filtered["collection_type"] == "measured"]
+    df_pedData_filtered = df_pedData_filtered.drop_duplicates(subset=["date", "location_name"])
+
+
+    df_grouped = (
+        df_pedData_filtered
+        .groupby("date")["location_name"]
+        .apply(list)
+        .reset_index(name="locations")
+    )
+    data_json = df_grouped.to_dict(orient="records")
+    return data_json
+
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

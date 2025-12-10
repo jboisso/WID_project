@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import dayjs from "dayjs";
 import { Header } from "./Header";
@@ -11,16 +11,48 @@ import { Footer } from "./Footer";
 
 export function App() {
   const [collapsed, setCollapsed] = useState(false);
-  const [datum, setDatum] = useState(dayjs().format("YYYY-MM-DD"));
-  const messstationListe = [
+  const [datum, setDatum] = useState(dayjs().format("2022-12-05"));
+  const [messstationListe, setMessstationListe] = useState([
     "Bahnhofstrasse (Mitte)",
     "Bahnhofstrasse (Nord)",
     "Bahnhofstrasse (Süd)",
     "Lintheschergasse",
-  ];
+  ]);
+
+  useEffect(() => {
+    fetch(`http://127.0.0.1:8000/api/v1/Locations?&datum=${datum}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.length > 0) {
+          setMessstationListe(data[0].locations);
+        }
+      });
+  }, [datum]);
+
+  const rtlListe = {
+    "Bahnhofstrasse (Mitte)": "Bürkliplatz",
+    "Bahnhofstrasse (Nord)": "Hauptbahnhof",
+    "Bahnhofstrasse (Süd)": "Hauptbahnhof",
+    Lintheschergasse: "Uraniastrasse",
+  };
+  const ltrListe = {
+    "Bahnhofstrasse (Mitte)": "Hauptbahnhof",
+    "Bahnhofstrasse (Nord)": "Bürkliplatz",
+    "Bahnhofstrasse (Süd)": "Bürkliplatz",
+    Lintheschergasse: "Hauptbahnhof",
+  };
+
+  const [rtl, setRtl] = useState(rtlListe[0]);
+  const [ltr, setLtr] = useState(ltrListe[0]);
   const [messstation, setMessstation] = useState(messstationListe[0]);
-  const [personengruppe, setPersonengruppe] = useState("alle");
+  const [personengruppe, setPersonengruppe] = useState("Alle");
   const [vergleichsart, setVergleichsart] = useState("tot");
+
+  useEffect(() => {
+    setRtl(rtlListe[messstation]);
+    setLtr(ltrListe[messstation]);
+  }, [messstation]);
+
   //const [totltr, setTotltr] = useState(""); - Weitermachen
   console.log(datum);
   return (
@@ -30,16 +62,14 @@ export function App() {
         setCollapsed={setCollapsed}
         datum={datum}
         messstation={messstation}
-        // totltr={totltr} -weitermachen
-        // ltr={ltr} -weitermachen
-        // totrtl={totrtl} -weitermachen
-        // rtl={rtl} -weitermachen
       />
       <MainArea
         datum={datum}
         messstation={messstation}
         personengruppe={personengruppe}
         vergleichsart={vergleichsart}
+        rtl={rtl}
+        ltr={ltr}
       />
       <Sidebar
         datum={datum}
