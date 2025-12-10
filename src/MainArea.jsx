@@ -1,9 +1,9 @@
 import { useVegaEmbed } from "react-vega";
 import { useState, useEffect } from "react";
 import React from "react";
-import all_chart from "./chart_all.json";
-import adult_chart from "./chart_adult.json";
-import child_chart from "./chart_child.json";
+import all_chart from "./assets/chart_all.json";
+import adult_chart from "./assets/chart_adult.json";
+import child_chart from "./assets/chart_child.json";
 
 //import data from "./time_loc_data.json";
 
