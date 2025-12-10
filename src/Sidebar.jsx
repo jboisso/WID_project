@@ -20,6 +20,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import {
   MapContainer,
+  WMSTileLayer,
   TileLayer,
   GeoJSON,
   Popup,
@@ -82,6 +83,9 @@ export const Sidebar = ({
                 setDatum(newValue ? dayjs(newValue).format("YYYY-MM-DD") : "");
               }}
               format="DD.MM.YYYY" // Anzeigeformat
+              shouldDisableDate={(date) =>
+                date.isSame(dayjs("2025-12-03"), "day")
+              } // Nicht verfügbare Daten ausblenden (Feature Ergänzen)
             />
           </LocalizationProvider>
         </AccordionDetails>
@@ -155,6 +159,17 @@ export const Sidebar = ({
             <TileLayer
               url="https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.png"
               attribution="&copy; OpenStreetMap contributors"
+            />
+
+
+            <WMSTileLayer
+              url="https://www.ogd.stadt-zuerich.ch/wms/geoportal/Baumkataster?"
+              layers="Baumstandorte"
+              format="image/png"
+              transparent={true}
+              version="1.3.0"
+              styles=""
+              tiled={false}
             />
           </MapContainer>
         </AccordionDetails>
