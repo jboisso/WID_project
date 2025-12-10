@@ -15,9 +15,6 @@ export function App() {
   const [datum, setDatum] = useState(dayjs().format("2022-12-05"));
   const [messstationListe, setMessstationListe] = useState([
     "Bahnhofstrasse (Mitte)",
-    "Bahnhofstrasse (Nord)",
-    "Bahnhofstrasse (Süd)",
-    "Lintheschergasse",
   ]);
 
   useEffect(() => {

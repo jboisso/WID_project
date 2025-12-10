@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Zürich HB" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.540246649784471, 47.377840184367479]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Uraniastrasse" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.537972, 47.37467]
+      }
+    }
+  ]
+}

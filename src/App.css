@@ -105,3 +105,11 @@ main {
   align-items: center;
   justify-content: space-around;
 }
+
+.place-label {
+  background: white;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-weight: bold;
+}

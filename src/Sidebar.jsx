@@ -30,6 +30,7 @@ import {
 
 import messflaeche from "./assets/hystreet_locations.json";
 import plaetze from "./assets/plaetze.json";
+import plaetze_linth from "./assets/plaetze_linth.json";
 
 export const Sidebar = ({
   datum,
@@ -186,6 +187,21 @@ export const Sidebar = ({
                 fillColor: "red",
                 fillOpacity: 0.3,
               }}
+            />
+            <GeoJSON
+              data={
+                messstation === "Lintheschergasse" ? plaetze_linth : plaetze
+              }
+              pointToLayer={(feature, latlng) =>
+                L.circleMarker(latlng, {
+                  radius: 0,
+                  fillOpacity: 0,
+                  opacity: 0,
+                }).bindTooltip(feature.properties.name, {
+                  permanent: true,
+                  className: "place-label",
+                })
+              }
             />
           </MapContainer>
         </AccordionDetails>

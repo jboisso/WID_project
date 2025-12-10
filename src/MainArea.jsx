@@ -5,8 +5,6 @@ import all_chart from "./assets/chart_all.json";
 import adult_chart from "./assets/chart_adult.json";
 import child_chart from "./assets/chart_child.json";
 
-//import data from "./time_loc_data.json";
-
 export const MainArea = ({
   datum,
   messstation,
