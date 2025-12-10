@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Zürich HB" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.540246649784471, 47.377840184367479]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Bürkliplatz" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.541157020745075, 47.366472111895909]
+      }
+    }
+  ]
+}

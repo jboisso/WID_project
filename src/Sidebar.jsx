@@ -20,12 +20,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import {
   MapContainer,
-  WMSTileLayer,
   TileLayer,
   GeoJSON,
   Popup,
   CircleMarker,
 } from "react-leaflet";
+
+import messflaeche from "./assets/hystreet_locations.json";
+import plaetze from "./assets/plaetze.json";
 
 export const Sidebar = ({
   datum,
@@ -151,24 +153,31 @@ export const Sidebar = ({
         </AccordionSummary>
         <AccordionDetails>
           <MapContainer
-            center={[47.374972, 8.540444]}
-            zoom={13}
-            style={{ height: "20vh", width: "100%" }}
+            key={messstation} //Aktualisiert Karte, wenn sich Variable ändert
+            center={[47.37252199854119, 8.539605834531509]}
+            zoom={14}
+            style={{ height: "35vh", width: "100%" }}
+            zoomControl={false}
+            scrollWheelZoom={false}
+            dragging={false}
+            touchZoom={false}
+            doubleClickZoom={false}
+            boxZoom={false}
+            keyboard={false}
           >
             <TileLayer
               url="https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.png"
               attribution="&copy; OpenStreetMap contributors"
             />
-
-
-            <WMSTileLayer
-              url="https://www.ogd.stadt-zuerich.ch/wms/geoportal/Baumkataster?"
-              layers="Baumstandorte"
-              format="image/png"
-              transparent={true}
-              version="1.3.0"
-              styles=""
-              tiled={false}
+            <GeoJSON
+              data={messflaeche}
+              filter={(feature) => feature.properties.name === messstation}
+              style={{
+                color: "red",
+                weight: 2,
+                fillColor: "red",
+                fillOpacity: 0.3,
+              }}
             />
           </MapContainer>
         </AccordionDetails>

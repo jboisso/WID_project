@@ -1,4 +1,11 @@
 @import "leaflet/dist/leaflet.css";
+.label-style {
+  background: white;
+  border: none;
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
 
 html,
 body {
