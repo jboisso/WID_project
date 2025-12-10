@@ -108,17 +108,17 @@ def get_pedData(ort: str, datum: str, zone: str):
 @app.get("/api/v1/Locations")
 def get_location(datum: str):
     datum_dt = pd.to_datetime(datum).date()
-    df_filtered = df_pedData.query('date == @datum_dt') # nach Datum filter
-    df_filtered = df_filtered[df_filtered['collection_type'] == 'measured'] # Einträge ohne Messwerte entfernen
-    df_filtered = df_filtered.drop_duplicates(subset=['date', 'location_name']) # Duplikate entfernen
+    df_location = df_pedData.query('date == @datum_dt') # nach Datum filtern
+    df_location = df_location[df_location["collection_type"] == "measured"] # Einträge ohne Messwerte entfernen
+    df_location = df_location.drop_duplicates(subset=["date", "location_name"]) # Duplikate entfernen
 
     # Orte nach Datum gruppieren
-    df_grouped = (
-        df_pedData
-        .groupby('date')['location_name']
+    df_location = (
+        df_location
+        .groupby("date")["location_name"]
         .apply(list)
-        .reset_index(name='locations')
+        .reset_index(name="locations")
     )
-
-    location_json = df_grouped.to_dict(orient='records')
+    location_json = df_location.to_dict(orient="records")
     return location_json
+
