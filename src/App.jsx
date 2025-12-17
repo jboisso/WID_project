@@ -62,12 +62,7 @@ export function App() {
 
   return (
     <div className={`app ${collapsed ? "collapsed" : ""}`}>
-      <Header
-        datum={datum}
-        messstation={messstation}
-        collapsed={collapsed}
-        setCollapsed={setCollapsed}
-      />
+      <Header collapsed={collapsed} setCollapsed={setCollapsed} />
       <MainArea
         datum={datum}
         messstation={messstation}

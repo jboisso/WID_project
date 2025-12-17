@@ -38,7 +38,7 @@ body {
 
 header {
   grid-area: header;
-  background: #fde703;
+  background: #9f631c;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -51,7 +51,7 @@ header {
 
 footer {
   grid-area: footer;
-  background: #fde703;
+  background: #9f631c;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -61,7 +61,7 @@ footer {
 
 aside {
   grid-area: aside;
-  background: lightgray;
+  background: white;
 }
 
 main {

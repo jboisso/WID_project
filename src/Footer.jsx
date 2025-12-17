@@ -10,7 +10,7 @@ export const Footer = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography variant="body2" color="text.secondary" align="center">
+          <Typography variant="body2" color="f0f0f0" align="center">
             © 2025 — Entwickelt von{" "}
             <Link
               href="https://github.com/jboisso"
