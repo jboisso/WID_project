@@ -26,7 +26,9 @@ export const MainArea = ({
 
   useEffect(() => {
     fetch(
-      `http://127.0.0.1:8000/api/v1/pedData?ort=${messstation}&datum=${datum}&zone=${zone}`
+      `${
+        import.meta.env.VITE_BACKEND_PATH
+      }api/v1/pedData?ort=${messstation}&datum=${datum}&zone=${zone}`
     )
       .then((response) => {
         if (!response.ok) {

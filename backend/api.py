@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import pandas as pd
 import os
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Datensatz aufbereiten
@@ -70,11 +71,13 @@ app = FastAPI()
 
 # ---------------------------------------------------------------------------
 # CORS konfigurieren
+load_dotenv()
 origins = [
-    'http://localhost',
-    'http://localhost:8080',
-    'http://localhost:5173'
+    "http://localhost",
+    os.getenv("VITE_BACKEND_PATH"),
+    os.getenv("VITE_FRONTEND_PATH")
 ]
+
 
 app.add_middleware(
     CORSMiddleware,

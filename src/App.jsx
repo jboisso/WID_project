@@ -40,7 +40,9 @@ export function App() {
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/v1/Locations?&datum=${datum}`)
+    fetch(
+      `${import.meta.env.VITE_BACKEND_PATH}api/v1/Locations?&datum=${datum}`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
