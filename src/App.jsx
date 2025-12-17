@@ -14,16 +14,12 @@ export function App() {
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   const [collapsed, setCollapsed] = useState(false);
-
   const [datum, setDatum] = useState(dayjs().format("2022-12-05"));
-
   const [messstationListe, setMessstationListe] = useState([
     "Bahnhofstrasse (Mitte)",
   ]);
   const [messstation, setMessstation] = useState(messstationListe[0]);
-
   const [personengruppe, setPersonengruppe] = useState("Alle");
-
   const [zone, setZone] = useState("all");
 
   const rtlListe = {
@@ -45,12 +41,18 @@ export function App() {
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/v1/Locations?&datum=${datum}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         if (data.length > 0) {
           setMessstationListe(data[0].locations);
         }
-      });
+      })
+      .catch((err) => console.error("Fetch failed:", err));
   }, [datum]);
 
   useEffect(() => {
