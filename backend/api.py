@@ -94,7 +94,7 @@ app.add_middleware(
 
 
 #-----------------------------------------------------------------------------
-# Chart Endpoint
+# Fussgängerdaten Endpoint
 @app.get("/api/v1/pedData")
 def get_pedData(ort: str, datum: str, zone: str):
     datum_dt = pd.to_datetime(datum).date()
@@ -110,7 +110,7 @@ def get_pedData(ort: str, datum: str, zone: str):
     return pedData_json
 
 #-----------------------------------------------------------------------------
-# Locations Endpoint
+# Locations Endpoint (welche sind wann verfügbar)
 @app.get("/api/v1/Locations")
 def get_location(datum: str):
     datum_dt = pd.to_datetime(datum).date()
