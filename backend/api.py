@@ -25,6 +25,7 @@ df_pedData = df_copy[[
     'zone_3_ltr_pedestrians_count', 'zone_3_rtl_pedestrians_count',
 ]]
 df_pedData = df_pedData.rename(columns={'temperature': 'Temperatur'}) # Temperatur umbenennen für Chartbeschriftung
+df_pedData = df_pedData.fillna(0)
 
 #-----------------------------------------------------------------------------
 # zusätzliche Spalten erzeugen

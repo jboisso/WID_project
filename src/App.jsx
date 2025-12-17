@@ -31,13 +31,13 @@ export function App() {
     "Bahnhofstrasse (Mitte)": "Bürkliplatz",
     "Bahnhofstrasse (Nord)": "Hauptbahnhof",
     "Bahnhofstrasse (Süd)": "Hauptbahnhof",
-    Lintheschergasse: "Uraniastrasse",
+    "Lintheschergasse": "Uraniastrasse",
   };
   const ltrListe = {
     "Bahnhofstrasse (Mitte)": "Hauptbahnhof",
     "Bahnhofstrasse (Nord)": "Bürkliplatz",
     "Bahnhofstrasse (Süd)": "Bürkliplatz",
-    Lintheschergasse: "Hauptbahnhof",
+    "Lintheschergasse": "Hauptbahnhof",
   };
 
   const [rtl, setRtl] = useState(rtlListe[0]);

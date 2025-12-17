@@ -44,10 +44,10 @@ export const Sidebar = ({
   setZone,
 }) => {
   useEffect(() => {
-    if (personengruppe !== "alle") {
+    if (personengruppe !== "alle" || messstation === "Lintheschergasse") {
       setZone("all"); // default value when disabled
     }
-  }, [personengruppe]);
+  }, [personengruppe, messstation]);
 
   return (
     <aside>
@@ -111,7 +111,7 @@ export const Sidebar = ({
         </AccordionSummary>
         <AccordionDetails>
           <Box sx={{ minWidth: 120, mt: 2 }}>
-            <FormControl fullWidth disabled={personengruppe !== "Alle"}>
+            <FormControl fullWidth disabled={personengruppe !== "Alle" || messstation === "Lintheschergasse"}>
               <InputLabel id="zone-select-label">Zone</InputLabel>
               <Select
                 labelId="zone-select-label"
