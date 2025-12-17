@@ -14,7 +14,7 @@ export function App() {
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   const [collapsed, setCollapsed] = useState(false);
-  const [datum, setDatum] = useState(dayjs().format("2022-12-05"));
+  const [datum, setDatum] = useState(dayjs().format("2025-07-18"));
   const [messstationListe, setMessstationListe] = useState([
     "Bahnhofstrasse (Mitte)",
   ]);

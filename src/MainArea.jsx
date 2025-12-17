@@ -59,12 +59,12 @@ export const MainArea = ({
   return (
     <main>
       <div className="grafik">
-        <h1 className="titel" id="grafikTitel">
+        <h2 className="titel" id="grafikTitel">
           Herrschte am {new Date(datum).toLocaleDateString("de-CH")}{" "}
           Fussgängerstau in Richtung {ltr}?
-        </h1>
+        </h2>
 
-        <h3 className="titel" id="grafikuntertitel">
+        <h3 className="titel" id="grafikUntertitel">
           Summen der stündlichen Fussgängerzählung an der {messstation} in
           Zürich (Schweiz)
         </h3>
@@ -75,6 +75,7 @@ export const MainArea = ({
           <h5>Personen in Richtung {ltr}</h5>
           <h5>Personen in Richtung {rtl}</h5>
         </div>
+        <p></p>
       </div>
     </main>
   );

@@ -1,11 +1,4 @@
 @import "leaflet/dist/leaflet.css";
-.label-style {
-  background: white;
-  border: none;
-  color: red;
-  font-weight: bold;
-  font-size: 14px;
-}
 
 html,
 body {
@@ -38,7 +31,7 @@ body {
 
 header {
   grid-area: header;
-  background: #9f631c;
+  background: #c07b27;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -51,7 +44,7 @@ header {
 
 footer {
   grid-area: footer;
-  background: #9f631c;
+  background: #024987;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -60,13 +53,16 @@ footer {
 }
 
 aside {
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 40px;
   grid-area: aside;
   background: white;
 }
 
 main {
   grid-area: main;
-  background: white;
+  background: #ffffff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .grafik {
@@ -74,6 +70,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 0px;
 }
 
 .titel {
@@ -85,8 +82,7 @@ main {
 }
 
 #grafikUntertitel {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  font-weight: 500;
 }
 
 .achsbeschriftung {
@@ -97,6 +93,9 @@ main {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 200;
   white-space: nowrap;
+}
+.achsbeschriftung h5 {
+  margin: 0;
 }
 
 .karte {

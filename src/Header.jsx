@@ -11,13 +11,13 @@ export const Header = ({ collapsed, setCollapsed }) => {
       >
         <img src="src/assets/fhnw-logo-small.svg" alt="FHNW Logo" />
       </a>
-      <Typography variant="h5" color="#f0f0f0">
+      <Typography className="titel" variant="h3" color="#000000ff">
         Fussgängermonitor
       </Typography>
 
       <Button
         variant="contained"
-        sx={{ backgroundColor: "#1c5a9f", color: "#f0f0f0" }}
+        sx={{ backgroundColor: "#024987", color: "#f0f0f0" }}
         onClick={() => setCollapsed(!collapsed)}
       >
         {collapsed ? "☰ Menü zeigen" : "✕ Menü ausblenden"}

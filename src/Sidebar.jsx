@@ -162,7 +162,7 @@ export const Sidebar = ({
           </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion defaultExpanded>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
