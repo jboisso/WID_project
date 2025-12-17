@@ -89,6 +89,8 @@ app.add_middleware(
 # API Endpoints 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
+
+#-----------------------------------------------------------------------------
 # Chart Endpoint
 @app.get("/api/v1/pedData")
 def get_pedData(ort: str, datum: str, zone: str):

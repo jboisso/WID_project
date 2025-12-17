@@ -1,16 +1,7 @@
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export const Header = ({
-  collapsed,
-  setCollapsed,
-  datum,
-  messstation,
-  // totltr,
-  // ltr,
-  // totrtl,
-  // rtl,
-}) => {
+export const Header = ({ collapsed, setCollapsed, datum, messstation }) => {
   return (
     <header className="header">
       <a
