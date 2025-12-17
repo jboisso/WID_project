@@ -1,10 +1,18 @@
 import { useVegaEmbed } from "react-vega";
-import { useState, useEffect } from "react";
-import React from "react";
+import { useState, useEffect, useRef } from "react";
+
+// Import Chart Specifications
 import all_chart from "./assets/chart_all.json";
 import adult_chart from "./assets/chart_adult.json";
 import child_chart from "./assets/chart_child.json";
 
+//-------------------------------------------------------------------------
+const charts = {
+  Alle: all_chart,
+  Erwachsene: adult_chart,
+  Kinder: child_chart,
+};
+// -----------------------------------------------------------------------
 export const MainArea = ({
   datum,
   messstation,
@@ -13,37 +21,39 @@ export const MainArea = ({
   rtl,
   ltr,
 }) => {
+  // Charts und Daten Initialisieren und laden
   const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch(
       `http://127.0.0.1:8000/api/v1/pedData?ort=${messstation}&datum=${datum}&zone=${zone}`
     )
-      .then((response) => response.json())
-      .then((data) => setData(data));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => setData(data))
+      .catch((err) => console.error("Fetch failed:", err));
   }, [datum, messstation, zone]);
 
-  // set charts dictionnary
-  const charts = {
-    Alle: all_chart,
-    Erwachsene: adult_chart,
-    Kinder: child_chart,
-  };
-
-  // set correct spec
-  const spec = charts[personengruppe] ?? all_chart;
-
-  const ref = React.useRef(null);
+  //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Chart auswählen und Daten anhängen
+  const spec = charts[personengruppe];
+  const ref = useRef(null);
   const embed = useVegaEmbed({
     ref,
     spec,
     options: { mode: "vega-lite" },
   });
-
+  // Grafik aktualisieren bei geänderten Daten
   useEffect(() => {
     embed?.view.data("data", data).runAsync();
   }, [embed, data]);
 
+  //_________________________________________________________________________
+  // Darstellung in Main Area
   return (
     <main>
       <div className="grafik">
@@ -51,26 +61,19 @@ export const MainArea = ({
           Herrschte am {new Date(datum).toLocaleDateString("de-CH")}{" "}
           Fussgängerstau in Richtung {ltr}?
         </h1>
+
         <h3 className="titel" id="grafikuntertitel">
           Summen der stündlichen Fussgängerzählung an der {messstation} in
           Zürich (Schweiz)
         </h3>
+
         <div ref={ref} />
+
         <div className="achsbeschriftung">
           <h5>Personen in Richtung {ltr}</h5>
           <h5>Personen in Richtung {rtl}</h5>
         </div>
-        <p>
-          Davon sind so und so viele Passanten in Zone XY, soviele in YZ und
-          noch einige in AB durchgelaufen.
-        </p>
       </div>
-
-      <p>Gewähltes datum: {datum}</p>
-      <p>Gewählte Messstation: {messstation}</p>
-      <p>Gewählte Personengruppe: {personengruppe}</p>
-      <p>Gewählte Zone: {zone}</p>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
     </main>
   );
 };
