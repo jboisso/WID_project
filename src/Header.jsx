@@ -12,7 +12,7 @@ export const Header = ({ collapsed, setCollapsed }) => {
         <img src="src/assets/fhnw-logo-small.svg" alt="FHNW Logo" />
       </a>
       <Typography variant="h5" color="#f0f0f0">
-        Fussgängerzählung Bahnhofstrasse Zürich
+        Fussgängermonitor
       </Typography>
 
       <Button
