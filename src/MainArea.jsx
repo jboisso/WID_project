@@ -28,7 +28,7 @@ export const MainArea = ({
     fetch(
       `${
         import.meta.env.VITE_BACKEND_PATH
-      }api/v1/pedData?ort=${messstation}&datum=${datum}&zone=${zone}`
+      }/api/v1/pedData?ort=${messstation}&datum=${datum}&zone=${zone}`
     )
       .then((response) => {
         if (!response.ok) {

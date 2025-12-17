@@ -41,7 +41,7 @@ export function App() {
 
   useEffect(() => {
     fetch(
-      `${import.meta.env.VITE_BACKEND_PATH}api/v1/Locations?&datum=${datum}`
+      `${import.meta.env.VITE_BACKEND_PATH}/api/v1/Locations?&datum=${datum}`
     )
       .then((response) => {
         if (!response.ok) {
