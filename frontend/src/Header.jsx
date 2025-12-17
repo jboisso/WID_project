@@ -9,7 +9,7 @@ export const Header = ({ collapsed, setCollapsed }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="src/assets/fhnw-logo-small.svg" alt="FHNW Logo" />
+        <img src="/fhnw-logo-small.svg" alt="FHNW Logo" />
       </a>
       <Typography className="titel" variant="h3" color="#000000ff">
         Fussgängermonitor

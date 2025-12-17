@@ -30,7 +30,7 @@ df_pedData = df_pedData.fillna(0)
 
 #-----------------------------------------------------------------------------
 # zusätzliche Spalten erzeugen
-df_pedData['weather_icon'] = 'src/assets/' + df_pedData['weather_condition'] + '.png'
+df_pedData['weather_icon'] = '/' + df_pedData['weather_condition'] + '.png'
 df_pedData['date'] = pd.to_datetime(df_pedData['timestamp']).dt.date
 df_pedData['hour'] = pd.to_datetime(df_pedData['timestamp']).dt.hour
 
