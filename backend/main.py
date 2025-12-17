@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Datensatz aufbereiten
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-df_raw = pd.read_csv("backend/Gesamtdatensatz.csv")     # import Datensatz
+df_raw = pd.read_csv("Gesamtdatensatz.csv")     # import Datensatz
 
 #----------------------------------------------------------------------------
 # relevante Spalten behalten
