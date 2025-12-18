@@ -1,53 +1,119 @@
-## Python Packages to install:
+# Zuri Fussgängermonitoring
 
-For running the Altair-Vega visualisation Jupyter notebook, the following dependencies have to be installed in the python environment:
+### Semesterprojekt 3050 WID
 
-- python-dotenv
-- pandas
-- altair
-- fastapi[standard]
+Das Projekt Zuri Fussgängermonitoring stellt die stündlich erfassten Fussgängerzählung an der Bahnhofstrasse sowie an der Lintheschergasse in einer interaktiven Grafik dar. Die Grafik soll die folgende Fragestellung beantworten: <br/>
+**Wann sind mehr Personen an der Bahnhofstrasse (Mitte) in Richtung Hauptbahnhof unterwegs, als in Richtung Bürkliplatz**<br/>
 
-## .env
+In der Grafik kann gezoomt werden, um Bereiche mit verhältnismässig wenigen Personen zu untersuchen. Zudem zeigt das Hovering mit der Maus die exakten Daten hinter der Grafik. Hierbei können Temperatur, gesamte Anzahl Personen und Personendifferenz abgefragt werden.
 
-Es muss im heruntergeladenen Ordner ein .env File erstellt werden. Dieses muss die folgenden zwei Variablen enthalten:
+Über die Filter auf der rechten Seite kann der gesamte Datensatz untersucht werden. Hierbei kann ein beliebiges Datum ausgewählt werden (beschränkt auf Tage mit Daten). Anschliessend werden automatisch die Messstandorte zur Filterung zur Verfügung gestellt, welche auch Daten aufweisen am gewählten Datum.
 
-> Environment Variablen:<br/>
-> `VITE_BACKEND_PATH=http://127.0.0.1:8000`<br/>
-> `VITE_FRONTEND_PATH=http://localhost:5173`
+Die Daten können nach Erwachsene / Kinder gefiltert werden. Die Auswahl der Zone erlaubt es, nur die Daten einzelner Zonen der Messstation darzustellen. Dabei stellen Zone eins und drei jeweils die Trottoirs dar, Zone zwei ist der Fahrbahnbereich. Die Zonenauswahl steht nur für die Messstandorte an der Bahnhofstrasse zur Verfügung. Auch kann nur entweder nach Personengruppe oder nach Zone gefiltert werden, da die Zonendaten nicht nach Personengruppen aufgeteilt sind.
 
-Es müssen die Pfade der lokalen Entwicklungsserver angegeben werden!
+Die Karte bietet eine grobe Übersicht über die Messbereiche. Die exakten Standorte der Messstationen sind nicht bekannt.
 
-# Fussgängermonitor
+## Setup
 
-## Quick Start
+### Very Quick Start
 
-### !! Es müssen die Python-Packages installiert und das .env File erstellt sein für die folgdenden Schritte !!
+Unter dem folgenden Link ist das Deployment der Website erreichbar:<br/>
+[Zürcher Fussgängermonitoring](https://zuri-fussgaengermonitoring.vercel.app/)
 
-1. Den entzipten Ordner im Terminal öffnen
-2. `npm install` ausführen
-3. `npm run dev` zum Starten des Frontend ausführen
-4. Im selben Ordner ein weiteres Terminal öffnen und ein Python Environment mit allen benötigten Packages aktivieren
-5. `fastapi dev backend/api.py` startet das Backend
+### Quick Start
 
-### 3. Backend
+**Python Environment**
 
-Im Backend wird der Gesamtdatensatz aufbereitet, und mittels API publiziert.<br/>
+Zur Ausführung des Backends wird ein Python (3.13.9) Environment mit den folgenden Packages benötigt:
 
-> Fastapi-Server im Terminal starten:<br/>`fastapi dev backend/api.py`
+- python-dotenv v1.2.1
+- pandas v2.3.3
+- altair-all v6.0.0
+- fastapi[standard] v0.121.1
 
-Die API kann über folgende Endpunkte abgerufen werdnen:
+**.env**
+
+Im Ordner Frontend und im Ordner Backend muss ein .env File erstellt werden, mit den folgenden Inhalten:
+
+> Environment Variablen:<br/> > `VITE_BACKEND_PATH=http://127.0.0.1:8000`<br/> > `VITE_FRONTEND_PATH=http://localhost:5173`
+
+Die URLs müssen die Pfade der lokalen Entwicklungsserver enthalten, jeweils **OHNE** </> am Ende!
+
+**Applikation Starten**
+
+**!! Es müssen die vorhergehenden Schritte erfüllt sein !!**
+
+1. Im Ordner Backend ein Terminal öffnen und das Python Environment von oben aktivieren
+2. `fastapi dev main.py` startet das Backend im Developpement Modus
+3. Im Ordner Frontend ein Terminal öffnen
+4. `npm install` ausführen zum Installieren aller Dependencies
+5. `npm run dev` Started das Frontend im Developpement Modus
+
+Nun sollten Frontend und Backend auf Localhost laufen. Die korrekten Ports sind den Terminals zu entnehmen. In der Regel sind diese:
+
+**Frontend**: http://localhost:5173/
+**Backend**: http://127.0.0.1:8000
+
+Die Dokumentation der API ist unter http://127.0.0.1:8000/docs erreichbar.
+
+## Code
+
+### Backend
+
+Im Backend wird der Gesamtdatensatz aufbereitet, und mittels FastAPI publiziert.<br/>
+
+> Fastapi-Server im Terminal starten:<br/>`fastapi dev main.py`
+
+Die API kann über folgende Endpunkte abgerufen werden:
 
 **Pedastrians Data:**<br/>
 Liefert die Fussgängerdaten Messtation und Tag.<br/>
-.../api/v1/pedData`?location_name&date`
-<br/>**location_name** = gewünschte Messtation
-<br/>**date** = gewünschtes Datum
+.../api/v1/pedData`?location_name=&date=&zone=`
+
+<br/>**location_name** = gewünschte Messtation (Zwingend)<br/>
+**Verfügbare Parameter**<br/>
+
+- Bahnhofstrasse (Mitte): Bahnhofstrasse%20(Mitte)<br/>
+- Bahnhofstrasse (Nord): Bahnhofstrasse%20(Nord)<br/>
+- Bahnhofstrasse (Süd): Bahnhofstrasse%20(S%C3%BCd)<br/>
+- Lintheschergasse: Lintheschergasse<br/>
+
+<br/>**date** = gewünschtes Datum (Zwingend)<br/>
+**Verfügbare Parameter**<br/>
+
+- Daten zwischen 28.09.2022 und 29.07.2025
+- Im Format **JJJJ-MM-TT**
+
+<br/>**zone** = gewünschte Zone (Zwingend)<br/>
+**Verfügbare Parameter**<br/>
+
+- 1
+- 2
+- 3
+- all
+
+Beispiel einer vollständigen Abfrage:<br/>
+https://wid-project-9e38.vercel.app/api/v1/pedData?ort=Bahnhofstrasse%20(S%C3%BCd)&datum=2024-08-17&zone=all
 
 **Locations Data:**<br/>
 Liefert alle Messstationen, welche an dem gesuchten Tag verfügbar sind.<br/>
-.../api/v1/Locations`?date`
-<br/>**date** = gewünschtes Datum
+.../api/v1/Locations`?date=`
+<br/>**date** = gewünschtes Datum im Format **JJJJ-MM-TT**
 
-### 4. Frontend
+Beispiel einer vollständigen Abfrage:<br/>
+https://wid-project-9e38.vercel.app/api/v1/Locations?&datum=2022-09-28
+
+Die Grundlagendaten sind im **Gesamtdatensatz.csv** abgelegt.
+
+### Frontend
+
+Das Frontend ist auf Basis einer Vite-React Umgebung aufgebaut.
 
 > Testserver im Terminal starten:<br/>`npm run dev`
+
+Die Grafik ist mit Altair Vega erstellt und mit React-Vega eingebunden. Die Daten in der Grafik werden vom Backend bezogen und interaktiv ersetzt.
+
+**MainArea:** Grafik eingebunden<br/>
+**Sidebar:** Filter (MUI-Elemente) und Übersichtskarte (React-Leaflet)<br/>
+**Header:** Titelbalken der Website mit der Möglichkeit, das Menu ein- und auszublenden<br/>
+**App.jsx:** Zusammenführung aller Teile, Datenabfrage
